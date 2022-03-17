@@ -27,15 +27,15 @@ namespace LAB_5.Views
 
             this.FindControl<Button>("SaveFileButton").Click += async delegate
             {
-                var taskPathOut = new OpenFileDialog()
+                var taskPathOut = new SaveFileDialog()
                 {
                     Title = "Choose file",
                     Filters = null
                 }.ShowAsync((Window)this.VisualRoot);
 
-                string[]? path2 = await taskPathOut;
+                string? path2 = await taskPathOut;
                 var contex = this.DataContext as MainWindowViewModel;
-                if (path2 != null) contex.GetPath = string.Join(@"\", path2);
+                if (path2 != null) contex.GetPath = path2;
             };
 
 
